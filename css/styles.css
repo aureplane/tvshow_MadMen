@@ -1,0 +1,420 @@
+@font-face {
+  font-family: "Helvetica Neue LTStd Bold";
+  src: url("../fonts/HelveticaNeueLTStd-Bd.otf");
+}
+
+@font-face {
+  font-family: "Helvetica Neue LTStd Light";
+  src: url("../fonts/HelveticaNeueLTStd-Lt.otf");
+}
+
+@font-face {
+  font-family: "Helvetica Neue LTStd Roman";
+  src: url("../fonts/HelveticaNeueLTStd-Roman.otf");
+}
+
+/* ---------------- BASIC ------------------- */
+
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+box-sizing: inherit; 
+}
+img {
+max-width: 100%;
+}
+
+/* body {
+	background-image: url("../img/background.jpg");
+} */
+main {
+	background-color: black;
+}
+
+
+/* main:before {
+	display: block;
+  content: '';
+  position: absolute;
+  height: inherit;
+  width: inherit;
+	background-color: #000000;
+	opacity: 0.5;
+	z-index: -6;
+} */
+h1,h2,h3 {
+	margin: 0;
+}
+
+h1,h2,h3,p {
+	color: white;
+	line-height: 1;
+}
+
+h1 {
+	font-family: "Helvetica Neue LTStd Bold";
+	line-height: 0.8;
+}
+
+h2 {
+	font-family: "Helvetica Neue LTStd Roman";
+	font-size: 23px;
+	letter-spacing: 1px;
+	/* margin-top: 25px; */
+	margin-bottom: 25px;
+	/* padding-top: 30px; */
+}
+
+h3 {
+	margin: 10px 0 0 0 ;
+	font-size: 15px;
+}
+
+.background {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: auto;
+	opacity: 0.5;
+	z-index: 3;
+}
+
+.container {
+	position: relative;
+	z-index: 10;
+	/*margin-right: 20px;*/
+	margin-left: 10%;
+}
+.intro-movie {
+	padding-top: 80px;
+	margin-right: 40px;
+}
+.list-episodes {
+	display: flex;
+	flex-direction: column;
+	
+}
+
+
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background:white;
+}
+
+
+.info-details-episode p {
+	color: black;
+}
+.shadow {
+	position: absolute;
+	/* top: 0; */
+	bottom: 0;
+	width: 100%;
+	height: 100%; 
+/*background: rgb(0,0,0);*/
+	background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 100%);
+  	z-index: 5;
+}
+
+/* ---------------- Episode Box ------------------- */
+
+.episode {
+	max-width: 280px;
+	font-family: "Helvetica Neue LTStd Bold";
+	display: flex;
+	flex-direction: column;
+	margin-right: 30px;
+	position: relative;
+    outline: none;
+	border: none;
+	margin-bottom: 20px;
+}
+.episode:active {
+	    outline: none;
+    border: none;
+}
+
+
+.thumbnail {
+	transition: all 0.3s ease-in;
+}
+
+.episodes-plot {
+	opacity: 0.8;
+	margin: 5px 0 30px;
+	font-family: Helvetica Neue LTStd Light;
+	font-size: 13px;
+	line-height: 1.15;
+}
+
+.episodeNumberSquare {
+
+	display: flex;
+	justify-content: center;
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	background-color: white;
+	color: black;
+	position: absolute;
+	top: 0;
+}
+.episodeNumberSquare p {
+	line-height: 0;
+		color: black;
+}
+
+.thumbnail {
+	/* margin-right: 20px; */
+}
+
+.plot {
+	margin: 5px 0 50px;
+	font-family: Helvetica Neue LTStd Light;
+	font-size: 12px;
+	/*width: 510px;*/
+	line-height: 1.2;
+
+}
+
+.smallInfosRight {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	font-size: 12px;
+	height: 20px;
+}
+.smallInfosRight svg {
+	width: 15px;
+	margin-right: 10px;
+}
+
+.arrows {
+	display: none;
+}
+/* ---------------- Episode Modular ------------------- */
+
+/* .overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(100, 100, 100, 0.4)
+} */
+
+.hidden {
+	display: none;
+}
+
+.info-details-episode {
+	font-family: Helvetica Neue LTStd Light;
+	/* margin: 20px 0 0 30px; */
+}
+
+.info-details-episode h3 {
+	font-family: HelveticaNeue-Bold;
+	font-size: 27px;
+	color: #000000;
+	margin-bottom: 10px;
+	/* letter-spacing: 0; */
+}
+
+
+
+
+
+
+
+
+/* ---------------- MEDIA QUERIES 768PX ------------------- */
+@media (min-width: 768px) {
+	h1 {
+		font-size: 74px;
+	}
+	.container {
+		display: grid;
+		grid-template-columns:  repeat(6, 1fr) 20px;
+		grid-template-rows: 200px 300px 70px auto 50px;
+		/* column-gap: 20px; */
+		/* width: 100vw; */
+		height: 100vh;
+	}
+	.intro-movie {
+		grid-row: 2/3;
+		grid-column: 1/5;
+	}
+	.plot {
+		width: 492px;
+		font-size: 23px;
+	}
+
+	.list-episodes {
+		opacity: 0;
+		width: auto;
+		grid-column: 1/12;
+		grid-row: 4/6;
+		cursor: crosshair;
+		transition: 0.9s;
+    /*margin: 30px 50px 50px;*/
+	}
+
+	.list-episodes.active {
+		opacity: 1;
+	}
+
+	.episodes-plot {
+		margin-bottom: 0;
+	}
+	.thumb-active{
+		opacity: 1;
+	}
+	.thumb-disabled{
+		opacity: 0.4;
+	}
+
+	.thumb-div {
+		/* width: 200px; */
+		background-color: #000000;
+	}
+
+	.arrow {
+		/*position: absolute;*/
+		width: 25px;
+		margin-right: 20px;
+	}
+	.arrows {
+		/* grid-row: 5/6;
+		grid-column: 6/7; */
+		display: flex;
+		flex-direction: row;
+		position: absolute;
+		bottom: 10px;
+		right: 30px;
+
+	}
+	.overlay {
+		grid-column: 4/8;
+	}
+	.smallInfosEpisode {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		height: 80px;
+		border-bottom: 1px solid rgba(151,151,151,0.2);
+		margin: 10px 0 0 0;
+		/* margin-right: 40px; */
+	}
+	.smallInfosLeft, .smallInfosRight {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		height: 50px;
+	}
+	
+	.smallInfosRight {
+		margin-right: 40px;
+	}
+	
+	.smallInfosRight svg {
+		position: relative;
+		bottom: 3px;
+		margin-right: 16px;
+	}
+	
+	.smallInfosLeft p{
+		margin: 0 0 0 30px;
+	}
+	.smallInfosEpisodeSecondLine {
+		margin: 30px 20px 0 30px;
+	}
+	.smallInfosEpisodeSecondLine p {
+		margin: 0;
+		/* font-family: HelveticaNeue		; */
+		font-size: 19px;
+	}
+/* .shadow {
+background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 80%, rgba(0,0,0,1) 100%);
+} */
+}
+/* ---------------- MEDIA QUERIES 1024PX ------------------- */
+@media (min-width: 1024px) {
+
+	.container {
+	margin-left: 100px;
+	}
+
+	.background {
+		display: none;
+	}
+
+	
+	main:after {
+	  content: "";
+	  background-image: url(../img/madmen_bg4.jpg);
+	  background-size: cover;
+	  opacity: 0.5;
+	  top: 0;
+	  left: 0;
+	  bottom: 0;
+	  right: 0;
+	  position: absolute;
+	  z-index: 5;  
+	}
+
+	.list-episodes {
+		grid-row: 3/5;
+	}
+
+	.intro-movie {
+		padding-top: 0;
+	}
+	
+	.shadow {
+		height: 367px; 
+		width: 100%;
+		/* background: linear-gradient(180deg, rgba(0,0,0,0.00) 31%, rgba(0,0,0,0.30) 88%, rgba(0,0,0,0.30) 88%); */
+		   background: linear-gradient(to bottom, rgba(151, 60, 60, 0),rgba(0,0,0,0.5)); 
+		position: absolute;
+		bottom: 0; 
+		z-index: 6;
+	}
+	
+
+	.overlay {
+		/* position: relative; */
+		grid-column: 5/8;
+		grid-row: 1/8;
+		z-index: 10;
+		transition: all 0.3s ease-in;
+		/* display: grid;
+		grid-template-rows: 222px 314px 1fr; */
+	}
+	/* .arrows {
+		position: absolute;
+		bottom: 10px;
+		right:10px;
+	} */
+
+
+	.content-item-modal {
+		display: grid;
+		grid-template-rows: 200px 314px 1fr;
+	}
+	.big-picture {
+		grid-row: 1/3;
+	}
+	.big-picture img {
+		/* width: 100%;  */
+		height: 100%; 
+		width: auto;
+		object-fit: cover
+	}
+}
