@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  function showSlide() {
+  function showSlide() {  
       $('.list-episodes').slick({
         prevArrow: $('.arrows-prev'),
         nextArrow: $('.arrows-next'),
@@ -27,13 +27,13 @@ $(document).ready(function(){
               settings: "unslick"
             
             }
-    // You can unslick at a given breakpoint now by adding:
-    // settings: "unslick"
-    // instead of a settings object
-  ]
-});
-}
+      // You can unslick at a given breakpoint now by adding:
+      // settings: "unslick"
+      // instead of a settings object
+          ]
+      }); 
+  }
 
-setTimeout(showSlide, 1000)
+  setTimeout(showSlide, 1000)
 
 });

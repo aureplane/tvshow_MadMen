@@ -406,7 +406,7 @@ background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 80%, rgba(0,
 
 	.content-item-modal {
 		display: grid;
-		grid-template-rows: 200px 314px 1fr;
+		grid-template-rows: 200px 300px 1fr;
 	}
 	.big-picture {
 		grid-row: 1/3;

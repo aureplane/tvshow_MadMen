@@ -8,8 +8,6 @@ const containerDesc = document.querySelector('.plot');
 const overlay = document.querySelector('.overlay');
 const arrows = document.querySelector('.arrows');
 
-
-
 //----------------------------------------------------------------------------------
 // FETCH FUNCTIONS 
 //----------------------------------------------------------------------------------
@@ -32,10 +30,6 @@ fetch(urlAPISeason)
         console.log(err);
       })
 
-// function getEachEpisode() {
-// 	episodesList = episodesData;
-// 	console.log(episodesList);
-// }
 function displayPlotMadMen(plotData) {
 	let plotHTML = '';
 	plotHTML += `${plotData}`
@@ -50,13 +44,6 @@ function displayEpisodeList(episodesData) {
 	episodesList.forEach((episode, index) => {
 	episodeIDarray.push(episode.imdbID);
 	})
-
-		// for (let i=0; i<episodeIDarray.length; i++) {
-		// 	let URL = "http://www.omdbapi.com/?apikey=f8b76cd6&i="+episodeIDarray[i];
-		// 	episodeIDURL.push(URL);
-		// }
-		// console.log(episodeIDURL);
-
 
 		//----------------------------------------------------------------------------------
 		// Await Function
@@ -140,19 +127,6 @@ function() {
 		container.classList.add("active");
 	}, 1000);
 });
-
-
-// function changeOpacity(index) {
-// 	!index
-	// if (episodesIMG.classList.contains('thumb-active')) {
-	// 	episodesIMG.classList.remove('thumb-active');
-	// }
-	// episodesIMG.classList.add('thumb-active');
-	 // else () {
-
-	 // }
-
-// }	const episodesIMG = document.querySelectorAll('.thumbnail');
 
 
 
@@ -267,5 +241,3 @@ container.addEventListener('click', (e) => {
 	}
 
 })
-
-
