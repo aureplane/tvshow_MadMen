@@ -214,14 +214,7 @@ container.addEventListener('click', (e) => {
 		}
 		e.target.classList.add('thumb-active');
 		e.target.classList.remove('thumb-disabled');
-		
 
-		// for (let i=0; i<images.length;i++) {
-		// if (!images[i].classList.contains('thumb-active')) {
-		// 	// images[i].style.opacity="0.4";
-		// 	images[i].classList.add('thumb-disabled');
-
-		// }}
 
 	} else {
 	e.target.classList.add('thumb-active');
