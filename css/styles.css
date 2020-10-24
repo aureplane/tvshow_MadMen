@@ -15,28 +15,23 @@
 
 html {
 	box-sizing: border-box;
+	font-size: 13px;
 }
 *, *:before, *:after {
 box-sizing: inherit; 
 }
+
 img {
 max-width: 100%;
 }
-
 
 main {
 	background-color: black;
 }
 
-
-
-h1,h2,h3 {
+h1,h2,h3, p {
 	margin: 0;
-}
-
-h1,h2,h3,p {
 	color: white;
-	line-height: 1;
 }
 
 h1 {
@@ -50,12 +45,9 @@ h2 {
 	letter-spacing: 1px;
 	margin-bottom: 25px;
 }
-
 h3 {
-	margin: 10px 0 0 0 ;
-	font-size: 15px;
+	font-size: 17px;
 }
-
 .background {
 	position: absolute;
 	left: 0;
@@ -77,10 +69,8 @@ h3 {
 }
 .list-episodes {
 	display: flex;
-	flex-direction: column;
-	
+	flex-direction: column;	
 }
-
 
 .overlay {
 	position: absolute;
@@ -104,10 +94,9 @@ h3 {
   	z-index: 5;
 }
 
-/* ---------------- Episode Box ------------------- */
+/* ---------------- Episode Item in the list ------------------- */
 
 .episode {
-	max-width: 280px;
 	font-family: "Helvetica Neue LTStd Bold";
 	display: flex;
 	flex-direction: column;
@@ -122,7 +111,6 @@ h3 {
     border: none;
 }
 
-
 .thumbnail {
 	transition: all 0.3s ease-in;
 }
@@ -136,7 +124,6 @@ h3 {
 }
 
 .episodeNumberSquare {
-
 	display: flex;
 	justify-content: center;
 	width: 30px;
@@ -147,18 +134,18 @@ h3 {
 	position: absolute;
 	top: 0;
 }
+
 .episodeNumberSquare p {
 	line-height: 0;
-		color: black;
-}
-
+	color: black;
+	margin: auto;
+	}
 
 .plot {
 	margin: 5px 0 50px;
 	font-family: Helvetica Neue LTStd Light;
 	font-size: 12px;
 	line-height: 1.2;
-
 }
 
 .smallInfosRight {
@@ -173,26 +160,20 @@ h3 {
 	margin-right: 10px;
 }
 
-.arrows {
-	display: none;
-}
-
-
-.hidden {
-	display: none;
-}
-
 .info-details-episode {
 	font-family: Helvetica Neue LTStd Light;
 }
 
 .info-details-episode h3 {
 	font-family: HelveticaNeue-Bold;
-	font-size: 27px;
+	font-size: 1.875vw;
 	color: #000000;
-	margin-bottom: 10px;
+	margin-bottom: 1.2vh;
 }
 
+.arrows, .hidden {
+	display: none;
+}
 
 
 /* ---------------- MEDIA QUERIES 768PX ------------------- */
@@ -202,16 +183,18 @@ h3 {
 	}
 	.container {
 		display: grid;
-		grid-template-columns:  repeat(6, 1fr) 20px;
-		grid-template-rows: 200px 300px 70px auto 50px;
+		grid-template-columns: 1fr 1fr 1fr 7vw 1fr 1fr 12vw;
+		grid-template-rows: 15vh 20vh 15vh auto 5vh;
 		height: 100vh;
 	}
+	
 	.intro-movie {
+		padding-top: 0;
 		grid-row: 2/3;
 		grid-column: 1/5;
 	}
+
 	.plot {
-		width: 492px;
 		font-size: 23px;
 	}
 
@@ -219,13 +202,19 @@ h3 {
 		opacity: 0;
 		width: auto;
 		grid-column: 1/12;
-		grid-row: 4/6;
+		grid-row: 4/5;
 		cursor: crosshair;
 		transition: 0.9s;
 	}
 
 	.list-episodes.active {
 		opacity: 1;
+	}
+
+	/* ---------------- Episode Item in the list ------------------- */
+	.episode {
+	margin-right: 30px;
+	margin-bottom: 0;
 	}
 
 	.episodes-plot {
@@ -237,11 +226,10 @@ h3 {
 	.thumb-disabled{
 		opacity: 0.4;
 	}
-
 	.thumb-div {
 		background-color: #000000;
+		margin-bottom: 25px;
 	}
-
 	.arrow {
 		width: 25px;
 		margin-right: 20px;
@@ -249,11 +237,12 @@ h3 {
 	.arrows {
 		display: flex;
 		flex-direction: row;
-		position: absolute;
-		bottom: 10px;
-		right: 30px;
-
+		grid-row: 5/6;
+		grid-column: 7/8;
+		height: 3vh;
 	}
+
+	/* ---------------- Episode Modular Display Sidebar ------------------- */
 	.overlay {
 		grid-column: 4/8;
 	}
@@ -262,52 +251,73 @@ h3 {
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
-		height: 80px;
-		border-bottom: 1px solid rgba(151,151,151,0.2);
-		margin: 10px 0 0 0;
+		border-bottom: 0.12vh solid rgba(151,151,151,0.2);
 	}
 	.smallInfosLeft, .smallInfosRight {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		height: 50px;
+		margin: 2.46rem 0 1.96rem;
+	}
+
+	.smallInfosLeft {
+		margin-left: 2.64vw;
 	}
 	
 	.smallInfosRight {
 		margin-right: 40px;
-		font-size: 18px;
 	}
 	
 	.smallInfosRight svg {
-		width: 20px;
+		width: 1.94vw;
 		position: relative;
 		bottom: 3px;
 		margin-right: 16px;
 	}
 	
-	.smallInfosLeft p{
-		margin: 0 0 0 30px;
-	}
 	.smallInfosEpisodeSecondLine {
-		margin: 30px 20px 0 30px;
+		margin: 30px 20px 0 2.64vw;
 	}
 	.smallInfosEpisodeSecondLine p {
 		margin: 0;
-		font-size: 19px;
+		font-size: 1.32vw;
 	}
 
 }
 /* ---------------- MEDIA QUERIES 1024PX ------------------- */
 @media (min-width: 1024px) {
+	p {
+		font-size: 1.14vw;
+	}
+	h1 {
+		font-size: 5.3vw;
+	}
+	h2, .plot{
+		font-size: 1.6vw;
+	}
+	h3 {
+		font-size: 1.06vw;
+		margin-bottom: 10px;
+	}
 
+	.episodes-plot {
+		font-size: 0.92vw;
+	}
+	
 	.container {
 	margin-left: 100px;
+	grid-template-columns: 1fr 1fr 1fr 7vw 1fr 1fr 7vw;
+	grid-template-rows: 27vh 20vh 10vh auto 5vh;
 	}
 
 	.background {
 		display: none;
 	}
 
+	.slick-slide {
+		height:200px;
+		margin-right:1.9vw;
+	  }
 	
 	main:after {
 	  content: "";
@@ -323,8 +333,22 @@ h3 {
 	}
 
 	.list-episodes {
-		grid-row: 3/5;
+		grid-column: 1/8;
+		grid-row: 4/5;
+		height: auto;
+		/* margin-top: 5vh; */
 	}
+	.episodeNumberSquare {
+		width: 2.13vw;
+		height: 2.13vw;
+	}
+
+
+.thumb-div img {
+	width: 100%; 
+	height: auto;
+	object-fit: cover;
+}
 
 	.intro-movie {
 		padding-top: 0;
@@ -342,21 +366,34 @@ h3 {
 
 	.overlay {
 		grid-column: 5/8;
-		grid-row: 1/8;
+		grid-row: 1/7;
 		z-index: 10;
 		transition: all 0.3s ease-in;
 	}
 
 	.content-item-modal {
 		display: grid;
-		grid-template-rows: 200px 300px 1fr;
+		grid-template-rows: 27vh 20vh 10vh auto 5vh;
+		height: 100vh;
+	}
+	.smallInfosEpisode p {
+		font-size: 1.25vw;
+	}
+	.smallInfosEpisodeSecondLine p {
+		line-height: 2.64vh;
 	}
 	.big-picture {
-		grid-row: 1/3;
+		grid-row: 1/4;
 	}
 	.big-picture img {
 		height: 100%; 
 		width: auto;
 		object-fit: cover
+	}
+	.arrow {
+		margin-right: 1vw;
+	}
+	.arrows svg {
+		width: 2vw;
 	}
 }

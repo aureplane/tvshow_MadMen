@@ -59,7 +59,9 @@ function displayEpisodeList(episodesData) {
 		}
 
   		await Promise.all(promises).then(data => {
-  			infoEachEpisode = data;
+			  infoEachEpisode = data;
+			  console.log(data);
+			
     	let episodeHTML = '';
     		data.forEach((episode, index) => {
 				let episodeNumber = episode.Episode;
@@ -133,9 +135,24 @@ function() {
 //----------------------------------------------------------------------------------
 // SHOW DETAILS EPISODES MODULAR BOX
 //----------------------------------------------------------------------------------
+function getMonthFormatted(date) {
+	let month = date.getMonth() + 1;
+	return month < 10 ? '0' + month : month;
+}
+
+function getDayFormatted(date) {
+	let day = date.getDate();
+	return day < 10 ? '0' + day : day;
+}
 
 function displayModular(index) {
 	let { Title, Released, imdbRating, Plot} = infoEachEpisode[index];
+	// console.log(Released);
+	let dateReleased = new Date(Released);
+	let month = getMonthFormatted(dateReleased);
+    let day = getDayFormatted(dateReleased);
+	console.log(dateReleased);
+
 	const modularHTML = `
 		<div class=content-item-modal>
 				<div class="big-picture"><img src="img/ep${index+1}_big.jpg" alt="${Title}">
@@ -143,10 +160,10 @@ function displayModular(index) {
 				<div class="info-details-episode">
 					<div class="smallInfosEpisode">
 						<div class=smallInfosLeft>
-							<p>Episode ${index+1} - ${Released}</p>
+							<p>Episode ${index+1} — ${dateReleased.getFullYear()}-${month}-${day}</p>
 						</div>
 						<div class=smallInfosRight>
-							<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<svg width="1.94vw"  viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 							<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 								<g id="Home" transform="translate(-1314.000000, -579.000000)">
 									<g id="Episode-info-sidebar" transform="translate(926.000000, -2.000000)">
@@ -173,7 +190,15 @@ function displayModular(index) {
 	    </div>
 	`;
 	overlay.classList.remove("hidden");
-	arrows.style.right = "490px";
+
+	let x = window.matchMedia("(max-width: 768px)")
+	
+	if (x.matches) {
+	arrows.style.gridColumn = "3/4";
+	} else {
+		arrows.style.gridColumn = "4/5";
+		}
+
 	modularContainer.innerHTML = modularHTML;
 }
 
@@ -184,7 +209,7 @@ function displayModular(index) {
 
 overlay.addEventListener('click', (e) => {
 	overlay.classList.add("hidden");
-	arrows.style.right = "30px";
+	arrows.style.gridColumn = "7/8";
 })
 
 
